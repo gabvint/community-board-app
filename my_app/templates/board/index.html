@@ -9,8 +9,9 @@
 
     {% for item in board  %}
         <h2>{{ item.title }}</h2>
+        <p>Posted on {{item.date_posted}}</p>
         <p>{{ item.description }}</p>
-        
+
     {% endfor %}
 
 {% endblock content %}
