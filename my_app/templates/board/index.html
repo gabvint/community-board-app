@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/board/board-index.css' %}"/>
+{% endblock head %}
+
+{% block content %}
+
+    {% for item in board  %}
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.description }}</p>
+        
+    {% endfor %}
+
+{% endblock content %}
