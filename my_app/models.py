@@ -19,9 +19,6 @@ class Category(Enum):
     LOST_FOUND = "Lost & Found"
     FOR_SALE = "For Sale"
     
-    # @classmethod
-    # def choices(cls):
-    #     return [(key, key.value) for key in cls]
 
 
 class Board(models.Model):
