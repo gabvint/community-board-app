@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/board/board-detail.css' %}" />
+{% endblock head %}
+
+{% block content %}
+
+<section>
+    <div>
+        <img
+         class="image"
+         src="{{ board.image.url}}" 
+         alt="{{ board.title }}">
+        <h2>{{ board.title }}</h2>
+        <p>{{ board.get_category_display}}</p>
+        <p>Posted on {{ board.date_posted}}</p>
+        <p>{{ board.description }}</p>
+
+    </div>
+</section>
+
+
+{% endblock content %}

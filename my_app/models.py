@@ -1,5 +1,6 @@
 from django.db import models
 from enum import Enum
+from django.urls import reverse
 # Create your models here.
 
 
@@ -21,11 +22,10 @@ class Category(Enum):
     FOR_SALE = "For Sale"
 
 
-
 class Board(models.Model):
     title = models.CharField(max_length=100)
     category = models.CharField(
-        max_length=50, 
+        max_length=50,
         choices=[(key.name, key.value) for key in Category],
         default=Category.GENERAL_DISCUSSION.value
     )
@@ -35,3 +35,6 @@ class Board(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('board-detail', kwargs={'board_id': self.id})

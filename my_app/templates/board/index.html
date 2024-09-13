@@ -8,14 +8,17 @@
 {% block content %}
 
     {% for item in board  %}
-        <img
-            class='image'
-            src="{{ item.image.url }}" 
-            alt="{{item.title}}">
-        <h2>{{ item.title }}</h2>
-        <p>Category: {{ item.get_category_display }}</p>
-        <p>Posted on {{ item.date_posted }}</p>
-        <p>{{ item.description }}</p>
+
+        <a href="{% url 'board-detail' item.id %}">
+            <img
+                class='image'
+                src="{{ item.image.url }}" 
+                alt="{{item.title}}">
+            <h2>{{ item.title }}</h2>
+            <p>Category: {{ item.get_category_display }}</p>
+            <p>Posted on {{ item.date_posted }}</p>
+            <p>{{ item.description }}</p>
+        </a>
 
     {% endfor %}
 
