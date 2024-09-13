@@ -30,7 +30,8 @@ class Board(models.Model):
         default=Category.GENERAL_DISCUSSION.value
     )
     description = models.TextField(max_length=250)
-    date_posted = models.DateTimeField(auto_now_add=True)
+    date_posted = models.DateTimeField()
+    image = models.ImageField(default='fallback.png', blank=True)
 
     def __str__(self):
         return self.title
