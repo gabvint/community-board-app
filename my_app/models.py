@@ -2,6 +2,7 @@ from django.db import models
 from enum import Enum
 # Create your models here.
 
+
 class Category(Enum):
     EVENTS = "Events"
     ANNOUNCEMENTS = "Announcements"
@@ -18,7 +19,7 @@ class Category(Enum):
     PETS = "Pets"
     LOST_FOUND = "Lost & Found"
     FOR_SALE = "For Sale"
-    
+
 
 
 class Board(models.Model):
@@ -30,6 +31,6 @@ class Board(models.Model):
     )
     description = models.TextField(max_length=250)
     date_posted = models.DateTimeField(auto_now_add=True)
-    
+
     def __str__(self):
         return self.title

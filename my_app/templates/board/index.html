@@ -9,7 +9,7 @@
 
     {% for item in board  %}
         <h2>{{ item.title }}</h2>
-        <p>Category: {{ item.category }}</p>
+        <p>Category: {{ item.get_category_display }}</p>
         <p>Posted on {{ item.date_posted }}</p>
         <p>{{ item.description }}</p>
 
