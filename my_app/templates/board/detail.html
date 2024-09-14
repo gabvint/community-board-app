@@ -18,6 +18,11 @@
         <p>{{ board.description }}</p>
 
     </div>
+
+    <div>
+        <a href="{% url 'board-update' board.id %}">Edit</a>
+        <a href="{% url 'board-delete' board.id %}">Delete</a>
+    </div>
 </section>
 
 

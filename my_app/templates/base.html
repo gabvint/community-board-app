@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
 
     <title>CommUnity Board</title>
-    {% block head %} 
-    {% endblock %}
+    {% block head %} {% endblock %}
   </head>
   <body>
     <header>
@@ -22,14 +21,12 @@
       </div>
       <nav>
         <ul>
-          <li><a href="{% url 'board_index' %}">Board</a></li>
+          <li><a href="{% url 'board-index' %}">Board</a></li>
+          <li><a href="{% url 'board-create' %}">Add a Post</a></li>
           <li><a href="{% url 'about' %}">About</a></li>
         </ul>
       </nav>
     </header>
-    <main>
-     {% block content %} 
-     {% endblock %}
-     </main>
+    <main>{% block content %} {% endblock %}</main>
   </body>
 </html>
