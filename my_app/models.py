@@ -1,6 +1,8 @@
 from django.db import models
 from enum import Enum
 from django.urls import reverse
+from django.contrib.auth.models import User
+
 # Create your models here.
 
 
@@ -32,6 +34,7 @@ class Board(models.Model):
     description = models.TextField(max_length=250)
     date_posted = models.DateTimeField()
     image = models.ImageField(default='fallback.png', blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title

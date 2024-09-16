@@ -16,7 +16,7 @@
                 alt="{{item.title}}">
             <h2>{{ item.title }}</h2>
             <p>Category: {{ item.get_category_display }}</p>
-            <p>Posted on {{ item.date_posted }}</p>
+            <p>Posted by {{ item.user.username }}</p>
             <p>{{ item.description }}</p>
         </a>
 

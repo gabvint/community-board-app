@@ -5,14 +5,14 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.Home.as_view(), name='home'),
     path('about/', views.about, name='about'), 
     path('board/', views.board_index, name='board-index'),
     path('board/<int:board_id>/', views.board_detail, name='board-detail'), 
     path('board/create/', views.BoardCreate.as_view(), name='board-create'),
     path('board/<int:pk>/update/', views.BoardUpdate.as_view(), name='board-update'),
     path('board/<int:pk>/delete/', views.BoardDelete.as_view(), name='board-delete'),
-    
+    path('accounts/signup/', views.signup, name='signup'),
     
     
 ]
