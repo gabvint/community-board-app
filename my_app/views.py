@@ -6,9 +6,11 @@ from .forms import BoardForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class BoardCreate(CreateView):
+class BoardCreate(LoginRequiredMixin, CreateView):
     model = Board
     form_class = BoardForm
     # success_url = '/board/'
@@ -17,11 +19,13 @@ class BoardCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
     
-class BoardUpdate(UpdateView):
+
+class BoardUpdate(LoginRequiredMixin, UpdateView):
     model = Board
     fields = '__all__'
     
-class BoardDelete(DeleteView):
+
+class BoardDelete(LoginRequiredMixin, DeleteView):
     model = Board
     success_url = '/board/'
     
@@ -34,10 +38,12 @@ class Home(LoginView):
 def about(request):
     return render(request, 'about.html')
 
+@login_required
 def board_index(request): #displays all the items in the board
     board = Board.objects.all()
     return render(request, 'board/index.html', {'board': board})
 
+@login_required
 def board_detail(request, board_id):
     board = Board.objects.get(id=board_id)
     return render(request, 'board/detail.html', {'board': board}) 
