@@ -13,10 +13,7 @@ urlpatterns = [
     path('board/<int:pk>/update/', views.BoardUpdate.as_view(), name='board-update'),
     path('board/<int:pk>/delete/', views.BoardDelete.as_view(), name='board-delete'),
     path('accounts/signup/', views.signup, name='signup'),
-    
-    
 ]
-
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
